@@ -6,6 +6,10 @@
     <title>Document</title>
     <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!-- ajax  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+
 
 </head>
 <body>
@@ -133,10 +137,15 @@
     </select>
     <btn id="onsubmit">submit</btn>
     <script>
+        let newpersoninfo;
         $("#onsubmit").on("click", function(){
 grabanswers();
 
+  $.post("/api/addfriend", newpersoninfo, function(data) {
+
+  });
         });
+
         function grabanswers(){
             let newperson = [];
            newperson.push($("#q1").val());
@@ -151,13 +160,14 @@ grabanswers();
            newperson.push($("#q10").val());
 console.log(newperson);
 
-let newpersoninfo ={
+newpersoninfo ={
     name: $("#name").val(),
     pict: $("#photo").val(),
     array: newperson
 }
 console.log(newpersoninfo);
-        };
+};
+
     </script>
 </body>
 </html>
