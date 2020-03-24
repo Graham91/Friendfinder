@@ -3,9 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- ajax  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
     <title>Document</title>
+    <style>
+        .button1{
+            background-color: blue;
+            padding: 20px;
+            font-size: x-large;
+            color: white;
+            text-decoration: none;
+        }
+        .button2{
+            background-color: green;
+            padding: 20px;
+            font-size: x-large;
+            color: white;
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
     <h1>HOME</h1>
+    <a href="/survey" class="button1">survey</a>
+    <btn class="button2">View People</btn>
+    <div id="displaydiv"></div>
+    <script>
+$(".button2").on("click", function(){
+    $.get('/api/allfriends', function(data){
+        $("#displaydiv").html(data);
+    })
+});
+    </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 var express = require("express");
 var app = express();
-const htmlroutes = require("./app/routing/htmlRoutes.js");
+const htmlroutes = require("./app/routing/htmlRoutes");
 const apiroutes = require("./app/routing/apiRoutes");
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
